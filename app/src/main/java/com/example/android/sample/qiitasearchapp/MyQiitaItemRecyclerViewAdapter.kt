@@ -1,15 +1,13 @@
 package com.example.android.sample.qiitasearchapp
 
-import androidx.recyclerview.widget.RecyclerView
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
-
+import androidx.recyclerview.widget.RecyclerView
 import com.example.android.sample.qiitasearchapp.QiitaItemFragment.OnListFragmentInteractionListener
 import com.example.android.sample.qiitasearchapp.dummy.DummyContent.DummyItem
-
 import kotlinx.android.synthetic.main.fragment_qiitaitem.view.*
 
 /**
@@ -18,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_qiitaitem.view.*
  * TODO: Replace the implementation with code for your data type.
  */
 class MyQiitaItemRecyclerViewAdapter(
-    private val mValues: List<DummyItem>,
+    private val values: List<QiitaItem>,
     private val mListener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MyQiitaItemRecyclerViewAdapter.ViewHolder>() {
 
@@ -40,9 +38,9 @@ class MyQiitaItemRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = mValues[position]
+        val item = values[position]
         holder.mIdView.text = item.id
-        holder.mContentView.text = item.content
+        holder.mContentView.text = item.title
 
         with(holder.mView) {
             tag = item
